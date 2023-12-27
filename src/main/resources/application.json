@@ -1,0 +1,77 @@
+{
+  "quickstart" :"true",
+  "quickACG": "{QUICK_ACG_VALUE}",
+  "DS_SIGNER_NAME": "Pankaj Maurya",
+  "DS_SIGNER_EMAIL": "pankaj@godspeed.systems",
+  "DS_APP_URL": "http://localhost:8080",
+  "DS_TARGET_ACCOUNT_ID": "{8816ad5d-5c86-484e-af34-57442806ef24}",
+  "DS_BASE_PATH": "https://demo.docusign.net",
+  "DS_ROOMS_BASE_PATH": "https://demo.rooms.docusign.com",
+  "DS_CLICK_BASE_PATH": "https://demo.docusign.net",
+  "DS_MONITOR_BASE_PATH": "https://lens-d.docusign.net",
+  "DS_ADMIN_BASE_PATH": "https://api-d.docusign.net",
+
+  "Gateway_Name": "{DS_PAYMENT_GATEWAY_NAME}",
+  "Gateway_Account_Id": "{GATEWAY_ACCOUNT_ID}",
+  "Gateway_Display_Name": "{DS_PAYMENT_GATEWAY_DISPLAY_NAME}",
+
+  "authorization.code.grant.sso.redirect-url": "/oauth2/authorization/acg",
+  "jwt.grant.sso.redirect-url": "/oauth2/authorization/jwt",
+  "jwt.grant.client.base-url": "account-d.docusign.com",
+  "spring": {
+    "security": {
+      "oauth2": {
+        "client": {
+          "registration": {
+            "acg": {
+              "client-id": "fedfb426-4c52-46d0-8f58-e8c7e271d110",
+              "client-secret": "76fc1d1f-4699-420f-ab73-5bc7e77b9ebd",
+              "client-authentication-method": "client_secret_basic",
+              "authorization-grant-type": "authorization_code",
+              "redirect-uri": "{baseUrl}/login/oauth2/code/acg",
+              "scope": "user_write, signature, impersonation, group_read, organization_read, permission_read, user_read, account_read, domain_read, identity_provider_read, user_data_redact, click.manage, click.send, dtr.rooms.read, dtr.rooms.write, dtr.documents.read, dtr.documents.write, dtr.profile.read, dtr.profile.write, dtr.company.read, dtr.company.write, room_forms, asset_group_account_read, asset_group_account_clone_write, asset_group_account_clone_read"
+            },
+            "jwt": {
+              "client-id": "fedfb426-4c52-46d0-8f58-e8c7e271d110",
+              "impersonated-user-guid": "8816ad5d-5c86-484e-af34-57442806ef24",
+              "private-key-path": "src/main/resources/private.key",
+              "authorization-grant-type": "authorization_code",
+              "redirect-uri": "{baseUrl}/login/oauth2/code/jwt"
+            }
+          },
+          "provider": {
+            "acg": {
+              "authorization-uri": "https://account-d.docusign.com/oauth/auth?prompt=login",
+              "token-uri": "https://account-d.docusign.com/oauth/token",
+              "user-info-uri": "https://account-d.docusign.com/oauth/userinfo",
+              "user-name-attribute": "sub"
+            },
+            "jwt": {
+              "authorization-uri": "https://account-d.docusign.com/oauth/auth?prompt=login",
+              "token-uri": "https://account-d.docusign.com/oauth/token",
+              "user-info-uri": "https://account-d.docusign.com/oauth/userinfo",
+              "user-name-attribute": "sub"
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "common.client.resource.user-info-uri": "https://account-d.docusign.com/oauth/userinfo",
+  "com.docusign.github.example-uri": "https://github.com/docusign/code-examples-java/blob/master/src/main/java/",
+  "com.docusign.documentation-path": "",
+
+  "CodeExamplesManifest": "https://raw.githubusercontent.com/docusign/code-examples-csharp/master/manifest/CodeExamplesManifest.json",
+
+  "server.tomcat.additional-tld-skip-patterns": "*jaxb*.jar",
+  "server.servlet.session.tracking-modes": "cookie",
+  "server.servlet.session.persistent": false,
+  "server.error.include-stacktrace": "always",
+  "server.error.whitelabel.enabled": false,
+
+  "spring.session.store-type": "none",
+  "spring.mvc.view.prefix": "/WEB-INF/templates/views/",
+  "spring.mvc.view.suffix": ".jsp",
+  "spring.jmx.enabled": false
+}
