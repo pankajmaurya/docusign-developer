@@ -16,3 +16,12 @@ Account ID: 23470698
 
 For App 2 (java app)
 Integration key is fedfb426-4c52-46d0-8f58-e8c7e271d110
+
+
+```
+mvn package -Dmaven.test.skip=true
+mvn spring-boot:run -Drun.profiles=dev
+
+```
+
+Open http://localhost:8080
